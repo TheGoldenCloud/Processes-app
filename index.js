@@ -1,5 +1,5 @@
 // ------- Child process -------
-const { spawn,fork,exec } = require('node:child_process');
+const { spawn,fork,exec,exit } = require('node:child_process');
 
 // let options = {
 //     shell: 'powershell.exe',
@@ -91,4 +91,58 @@ let options = {
 
 //fork()
 //Child Processes Fork Example w/ NodeJS & Express URADI OVAJ OVDE PRIMER
+
+const sshConfig = {
+  host: '',
+  port: 22,
+  username: 'zmajorama',
+  privateKey: 'path-to-private-key.pem'
+};
+
+//process.stdout.write("Enter how many connecttions do you want to connect: ")
+
+// process.stdin.on('data',(data)=>{
+//     process.stdout.write(`You have chosen: ${data}`);
+    
+//     for(let i = 0; i <= data.toString(); i++){
+//         console.log(i);
+//     }
+
+
+    // process.stdin.on('data',(data)=>{
+    //     process.stdout.write(`You have chosen another data: ${data.toString()}`);
+
+    // })
+
+
+// })
+
+//func
+let spawnCHildConnection = (host, port, username) =>{
+    const sshCommand = `ssh -p ${port} -i ${sshConfig.username}@${sshConfig.host} ${remoteCommand}`;
+
+    const childProcess = spawn('cmd.exe', ['/c', 'start', 'cmd.exe', '/k', sshCommand], { shell: true });
+}
+
+// // Command to run on the remote server
+const remoteCommand = 'ls';
+
+// Construct the ssh command
+const sshCommand = `ssh -p ${sshConfig.port} -i ${sshConfig.privateKey} ${sshConfig.username}@${sshConfig.host} ${remoteCommand}`;
+
+// Open a new Command Prompt window with the SSH command
+const childProcess = spawn('cmd.exe', ['/c', 'start', 'cmd.exe', '/k', sshCommand], { shell: true });
+
+// Handle output and errors
+childProcess.stdout.on('data', (data) => {
+  console.log(`Output: ${data}`);
+});
+
+childProcess.stderr.on('data', (data) => {
+  console.error(`Error: ${data}`);
+});
+
+childProcess.on('close', (code) => {
+  console.log(`Process exited with code ${code}`);
+});
 
