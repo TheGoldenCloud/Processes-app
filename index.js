@@ -1,8 +1,14 @@
-const { spawn } = require('node:child_process');
+// ------- Child process -------
+const { spawn,fork,exec } = require('node:child_process');
 
-// let child_process = spawn('cat ./cuvanje.txt',options); //Ne postoji cuvanje.txt
+// let options = {
+//     shell: 'powershell.exe',
+//     cwd: process.cwd()
+// };
 
-// child_process.stdin.write("Writted within child input",(error)=>{
+// let child_process = spawn('cat ./Tasks.txt',options);
+
+// child_process.stdin.write("Writted within child input",(error)=>{    //Uradi write to child process
 //     if(error){
 //         console.log(error);
 //     }else{
@@ -20,12 +26,13 @@ const { spawn } = require('node:child_process');
 //     }
 // })
 
-// Event handleri
+// //Event handleri
 // child_process.on('close',()=>{    //message, close...
 //     console.log("Chilled process ended!");
 // })
 
-//Import i export iz module odnosn oglobqalnog objekta
+
+// ------- Main process -------
 
 // const { stdout,stdin,exit } = require('node:process');
 
@@ -56,3 +63,32 @@ const { spawn } = require('node:child_process');
 // })
 
 // ask(0);
+
+//Import i export iz module odnosn oglobqalnog objekta
+
+
+// let child = spawn('node ./child_script.js',options);
+// //let child = spawn('cat ./Tasks.txt',options);
+
+// child.stdout.on('data', (data,error)=>{ 
+//     if(error){
+//         process.stdout.write(error);
+//     }else{
+//         process.stdout.write(data.toString());
+//     }
+// })
+
+// child.on('close',()=>{
+//     process.stdout.write("Child process closed");
+// })
+
+//const command = 'node child_script.js';
+
+let options = { 
+    stdio: 'pipe',  //pipe nam omogucava prolaznost na stdio odnodno na izlazu kod main procesa IPC arhitektura
+    shell: true 
+}
+
+//fork()
+//Child Processes Fork Example w/ NodeJS & Express URADI OVAJ OVDE PRIMER
+
