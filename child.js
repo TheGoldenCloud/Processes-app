@@ -1,24 +1,27 @@
+const LinkedList = require("./LinkedList");
+const Node = require("./LinkedList");
+const { exit } = require('node:process');
+
 process.on('message',(mess)=>{
-    let processedData = isPrime(mess);
+
+    const linkedList = new LinkedList();
+
+    let processedData = [];
+    
+    for(let i = 1; i <= mess; i++){
+        linkedList.append(Math.floor(Math.random() * 9999999999999999999999999))
+    }
+
+    processedData = linkedList.display();
+
     process.send(processedData);
 
-    //console.log(`This is message from main process ${mess} \n`);
+    exit(0);
 })
 
 //process je ustvari child process
-//console.log('Child created \n', process.pid);
+console.log('Child created \n', process.pid);
 
-let isPrime = (n) => {
-    const factors = [];
-
-    if(n < 1) return false;
-    if(n == 1) return false;
-
-    for(let i = 0; i <= n; i++){
-        if(n % i === 0){
-            factors.push(i);
-        }
-    }
-
-    return { n ,factors, isPrime: ( factors.length > 0? false : true)}
-}
+process.on('exit',()=>{
+    console.log("End");
+})
