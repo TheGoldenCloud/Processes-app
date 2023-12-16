@@ -9,7 +9,7 @@ process.on('message',(mess)=>{
     let processedData = [];
     
     for(let i = 1; i <= mess; i++){
-        linkedList.append(Math.floor(Math.random() * 9999999999999999999999999))
+        linkedList.append(Math.floor(Math.random() * 9999999999999999999999999));
     }
 
     processedData = linkedList.display();
