@@ -2,8 +2,9 @@ const express = require('express');
 const app = express();
 const port = 4000;
 const { fork } = require('node:child_process');
+const { Worker } = require('node:worker_threads'); 
 
-app.get('/linkedList/generate/:number', (req, res) => {
+app.get('/child/linkedList/:number', (req, res) => {
 
     let child_process = fork('child.js');
 
@@ -14,16 +15,17 @@ app.get('/linkedList/generate/:number', (req, res) => {
     })
 });
 
-// app.get('/linkedList/:number', (req, res) => {
+app.get('/thread/linkedList/:number', (req, res) => {
 
-//     let child_process = fork('child.js');
+    let thread = new Worker('./Thread.js');
 
-//     child_process.send(req.params.number);
+    thread.postMessage(req.params.number);
 
-//     child_process.on('message',(procMess)=>{
-//         res.json(procMess);
-//     })
-// });
+    thread.on('message',(data)=>{
+      res.json(data);
+    })    
+
+});
 
 app.listen(port, () => {
   console.log(`Server is listening at ${port}`);
