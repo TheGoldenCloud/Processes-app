@@ -1,5 +1,5 @@
-const LinkedList = require("./LinkedList");
-const Node = require("./LinkedList");
+const LinkedList = require("../Extras/LinkedList");
+const Node = require("../Extras/LinkedList");
 const { exit } = require('node:process');
 
 process.on('message',(mess)=>{

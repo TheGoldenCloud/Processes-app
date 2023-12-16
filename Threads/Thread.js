@@ -1,5 +1,5 @@
 const { parentPort } = require('node:worker_threads');
-const LinkedList = require("./LinkedList");
+const LinkedList = require("../Extras/LinkedList");
 
 parentPort.on('message',(data)=>{
     const linkedList = new LinkedList();
