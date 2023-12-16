@@ -1,4 +1,0 @@
-- Ovde prebaci ono sto si radio u child procesima tj ponaovi i predji fork.
-- Uzmi predji main process Input/Output
-- Napravi mini app ali ubaci i Buffers, Readable/Writable Streams 
-- Uzmi da napravis app sa bazom mysql i sve to konvertuj u typescript

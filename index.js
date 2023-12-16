@@ -90,16 +90,14 @@ let options = {
 }
 
 //fork()
-//Child Processes Fork Example w/ NodeJS & Express URADI OVAJ OVDE PRIMER
-
 const sshConfig = {
-  host: '',
+  host: '192.168.0.25',
   port: 22,
   username: 'zmajorama',
   privateKey: 'path-to-private-key.pem'
 };
 
-//process.stdout.write("Enter how many connecttions do you want to connect: ")
+// process.stdout.write("Enter how many connections do you want to connect: ")
 
 // process.stdin.on('data',(data)=>{
 //     process.stdout.write(`You have chosen: ${data}`);
@@ -109,31 +107,28 @@ const sshConfig = {
 //     }
 
 
-    // process.stdin.on('data',(data)=>{
-    //     process.stdout.write(`You have chosen another data: ${data.toString()}`);
+//     process.stdin.on('data',(data)=>{
+//         process.stdout.write(`You have chosen another data: ${data.toString()}`);
 
-    // })
-
-
+//     })
 // })
 
+
 //func
-let spawnCHildConnection = (host, port, username) =>{
-    const sshCommand = `ssh -p ${port} -i ${sshConfig.username}@${sshConfig.host} ${remoteCommand}`;
+// let spawnCHildConnection = (host, port, username) =>{
+//     const sshCommand = `ssh -p ${port} -i ${sshConfig.username}@${sshConfig.host} ${remoteCommand}`;
 
-    const childProcess = spawn('cmd.exe', ['/c', 'start', 'cmd.exe', '/k', sshCommand], { shell: true });
-}
+//     const childProcess = spawn('cmd.exe', ['/c', 'start', 'cmd.exe', '/k', sshCommand], { shell: true });
+// }
 
-// // Command to run on the remote server
+
+
 const remoteCommand = 'ls';
 
-// Construct the ssh command
-const sshCommand = `ssh -p ${sshConfig.port} -i ${sshConfig.privateKey} ${sshConfig.username}@${sshConfig.host} ${remoteCommand}`;
+const sshCommand = `ssh -p ${sshConfig.port} -i ${sshConfig.privateKey} ${sshConfig.username}@${sshConfig.host}`;
 
-// Open a new Command Prompt window with the SSH command
 const childProcess = spawn('cmd.exe', ['/c', 'start', 'cmd.exe', '/k', sshCommand], { shell: true });
 
-// Handle output and errors
 childProcess.stdout.on('data', (data) => {
   console.log(`Output: ${data}`);
 });
