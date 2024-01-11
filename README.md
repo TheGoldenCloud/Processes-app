@@ -2,17 +2,17 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/TheGoldenCloud/Birthday-reminder">
-    <img src="./birthdayReminder/public/birthday-cake-svgrepo-com.svg" alt="Logo" width="80" height="80">
+  <a href="https://github.com/TheGoldenCloud/Processes-app">
+    <img src="./Pictures/parallel.svg" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">Birthday reminder</h3>
+<h3 align="center">Offloading main process</h3>
 
   <p align="center">
     ·
-    <a href="https://github.com/TheGoldenCloud/Birthday-reminder/issues">Report Bug</a>
+    <a href="https://github.com/TheGoldenCloud/Processes-app/issues">Report Bug</a>
     ·
-    <a href="https://github.com/TheGoldenCloud/Birthday-reminder/issues">Request Feature</a>
+    <a href="https://github.com/TheGoldenCloud/Processes-app/issues">Request Feature</a>
   </p>
 </div>
 
@@ -46,9 +46,9 @@
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
 <!-- <img src="/public/app.png" alt="appImg" width="300" height="500"> -->
-<img src="./birthdayReminder/public/birth.png" alt="appImg" width="300" height="500">
+<img src="./Pictures/treads.jpeg" alt="appImg" width="300" height="500">
 
-This is a small react app that is used for displaying birthdays from mysql database, and birthdays can be deleted just on renderer side.
+This application is showing that the main process can't be blocked, providing ways to delegate requests to it's newly created threads and sub processes. For showcasing that functionality in this application you can generate/calculate n nodes in LinkedList based on user input. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -56,8 +56,8 @@ This is a small react app that is used for displaying birthdays from mysql datab
 
 ### Built With
 
-[![My Skills](https://skillicons.dev/icons?i=react)](https://skillicons.dev)
-[![My Skills](https://skillicons.dev/icons?i=bootstrap)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=express)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=nodejs)](https://skillicons.dev)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -77,11 +77,11 @@ This is an example of how to list things you need to use the software and how to
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/TheGoldenCloud/Birthday-reminder.git
+   git clone https://github.com/TheGoldenCloud/Processes-app.git
    ```
 2. Get into app file
    ```sh
-   cd Birthday-reminder
+   cd Processes
    ```
 3. Install NPM packages
    ```sh
@@ -90,18 +90,5 @@ This is an example of how to list things you need to use the software and how to
 4. Start server
    ```sh
    npm start
-
-5. Get into front
-   ```sh
-   cd birthdayReminder
-
-6. Install NPM packages
-   ```sh
-   npm install
-   ```
-7. Start app
-   ```sh
-   npm run dev
-   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
