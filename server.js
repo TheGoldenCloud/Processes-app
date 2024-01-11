@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
 const port = 4000;
-const { fork,spawn } = require('node:child_process');
+const { fork } = require('node:child_process');
 const { Worker } = require('node:worker_threads'); 
 
 app.get('/child/linkedList/:number', (req, res) => {
 
-    let child_process = fork('child.js');
+    let child_process = fork('./Childs/child.js');
 
     child_process.send(req.params.number);
 
@@ -17,7 +17,7 @@ app.get('/child/linkedList/:number', (req, res) => {
 
 app.get('/thread/linkedList/:number', (req, res) => {
 
-    let thread = new Worker('./Thread.js');
+    let thread = new Worker('./Threads/Thread.js');
 
     thread.postMessage(req.params.number);
 
@@ -76,8 +76,6 @@ app.get('/connect/:port/:username/:host', (req) => {  //Probaj sa clusterom!!!
     console.log(`Process error code ${code}, process exited`);
   });
 });
-
-
 
 app.listen(port, () => {
   console.log(`Server is listening at ${port}`);
