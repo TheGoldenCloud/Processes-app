@@ -46,7 +46,7 @@
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
 <!-- <img src="/public/app.png" alt="appImg" width="300" height="500"> -->
-<img src="./Pictures/treads.jpeg" alt="appImg" width="300" height="500">
+<img src="./Pictures/treads.jpeg" alt="appImg" width="600" height="400">
 
 This application is showing that the main process can't be blocked, providing ways to delegate requests to it's newly created threads and sub processes. For showcasing that functionality in this application you can generate/calculate n nodes in LinkedList based on user input. 
 
